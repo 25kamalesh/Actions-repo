@@ -1,0 +1,13 @@
+name : worflow_Issue
+
+on:
+  types:[opened]
+jobs:
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dump contents to github
+        run : echo '${{ toJSON(github.event) }}'| jq
+        shell: bash
+      - name : add-comment
+      
